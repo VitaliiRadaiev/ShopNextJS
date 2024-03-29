@@ -41,7 +41,7 @@ export function Menu({ isOpen, categories }: MenuProps): JSX.Element {
                 <ul>
                     <li>
                         <Link
-                            href="#"
+                            href="/cabinet"
                             className='min-h-14 p-4 flex items-center gap-3 text-lg border-b border-slate-300'
                         >
                             <IconKey className=' h-6 w-auto text-secondary' />
@@ -51,7 +51,7 @@ export function Menu({ isOpen, categories }: MenuProps): JSX.Element {
                     {categories.map(category =>
                         <li key={category.id}>
                             <Link
-                                href="#"
+                                href={"/catalog/"+category.id}
                                 className={clsx(
                                     'min-h-14 p-4 flex items-center gap-3 text-lg border-b border-slate-300',
                                     {

@@ -32,7 +32,7 @@ export function ListSearchSuggestions({ searchQuery }: { searchQuery: string }) 
                     {products && !!products.items.length
                         ? products.items.map(product =>
                             <Link key={product.id} href={`/product/${product.id}`} className="flex gap-3 p-1 transition hover:bg-slate-100">
-                                <div className='h-[80px] w-[80px] flex items-center justify-center border bg-white border-slate-200 p-1'>
+                                <div className='h-[80px] w-[80px] grow-0 shrink-0 flex items-center justify-center border bg-white border-slate-200 p-1'>
                                     <ImageRemote
                                         src={getRemoteImage(product.images)}
                                         className='w-auto h-auto max-h-full max-w-full'

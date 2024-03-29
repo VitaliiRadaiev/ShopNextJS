@@ -77,9 +77,11 @@ export function ProductCard({ product, addToCartSlot, addToWishListSlot }: Produ
 export function ProductCardSkeleton() {
     return (
         <div
-            className={`${shimmer} relative overflow-hidden bg-white p-3: md:p-5 flex flex-col items-center`}
+            className={`${shimmer} relative overflow-hidden bg-white p-3: md:p-5 flex flex-col items-center pb-4`}
         >
-            <div className="h-[140px] md:h-[200px] bg-gray-100 w-full"></div>
+            <div className='px-2 w-full'>
+                <div className="h-[140px] md:h-[200px] bg-gray-100 w-full"></div>
+            </div>
             <div className=" bg-gray-100 text-[14px] md:text-[20px] h-[1em] mt-3 w-10/12"></div>
             <div className=" bg-gray-100 text-[14px] md:text-[20px] h-[1em] mt-3 w-1/2"></div>
             <div className=" bg-gray-100 text-[14px] md:text-[20px] h-[1em] mt-3 w-9/12"></div>

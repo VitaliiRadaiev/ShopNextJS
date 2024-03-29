@@ -1,6 +1,6 @@
 import { LogOut } from '@/app/4_features/authentication';
 import { CabinetNav } from '@/app/5_entities/cabinet';
-import clsx from 'clsx';
+import { H2 } from '@/app/6_shared/ui/Titles';
 
 export default function cabinetLayout({
     children,
@@ -11,7 +11,8 @@ export default function cabinetLayout({
         <main className=''>
             <section className="py-9 lg:py-20">
                 <div className="container">
-                    <div className='lg:grid grid-cols-[250px_1fr] gap-8'>
+                    <H2>Личный кабинет</H2>
+                    <div className='lg:grid grid-cols-[250px_1fr] gap-8 mt-4'>
                         <CabinetNav>
                             <LogOut />
                         </CabinetNav>

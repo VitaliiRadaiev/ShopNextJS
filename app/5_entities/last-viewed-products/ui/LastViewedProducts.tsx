@@ -16,8 +16,6 @@ interface LastViewedProductsProps {
 }
 
 export function LastViewedProducts({ lastViewedProducts }: LastViewedProductsProps): JSX.Element {
-    const buttonPrevRef = useRef<HTMLButtonElement>(null);
-    const buttonNextRef = useRef<HTMLButtonElement>(null);
 
     return (
         <div className='bg-[#f1f1f1] py-16'>
@@ -26,8 +24,8 @@ export function LastViewedProducts({ lastViewedProducts }: LastViewedProductsPro
                     <H2>ранее вы смотрели</H2>
                     <div className="flex">
                         <button
-                            ref={buttonPrevRef}
                             className={clsx(
+                                'last-viewed-slider-btn-prev',
                                 'flex items-center justify-center p-1 h-8 w-8 border border-slate-300 text-primary',
                                 '[&.swiper-button-disabled]:opacity-60 [&.swiper-button-disabled]:pointer-events-none'
                             )}
@@ -35,8 +33,8 @@ export function LastViewedProducts({ lastViewedProducts }: LastViewedProductsPro
                             <ChevronLeftIcon className='h-full w-auto' />
                         </button>
                         <button
-                            ref={buttonNextRef}
                             className={clsx(
+                                'last-viewed-slider-btn-next',
                                 'flex items-center justify-center p-1 h-8 w-8 border border-slate-300 text-primary',
                                 '[&.swiper-button-disabled]:opacity-60 [&.swiper-button-disabled]:pointer-events-none'
                             )}
@@ -47,6 +45,9 @@ export function LastViewedProducts({ lastViewedProducts }: LastViewedProductsPro
                 </div>
                 <div className='mt-4'>
                     <Swiper
+                        onSwiper={(swiper) => {
+                            swiper.el.style.opacity = '1';
+                        }}
                         spaceBetween={10}
                         breakpoints={{
                             0: {
@@ -60,11 +61,11 @@ export function LastViewedProducts({ lastViewedProducts }: LastViewedProductsPro
                             }
                         }}
                         navigation={{
-                            prevEl: buttonPrevRef.current,
-                            nextEl: buttonNextRef.current
+                            prevEl: '.last-viewed-slider-btn-prev',
+                            nextEl: '.last-viewed-slider-btn-next'
                         }}
                         modules={[Navigation]}
-                        className="!p-2 !-m-2"
+                        className="!p-2 !-m-2 opacity-0"
                     >
 
                         {lastViewedProducts.products.map(product => {

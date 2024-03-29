@@ -54,6 +54,8 @@ export function Header({ categories, user, basket, wishlist }: HeaderProps) {
         }
 
         pageYOffset.current = window.scrollY;
+
+
     }
 
     const searchShowToggle = (state: boolean) => {
@@ -69,12 +71,23 @@ export function Header({ categories, user, basket, wishlist }: HeaderProps) {
     useEffect(() => {
         setIsHeaderShow(true);
         searchShowToggle(false);
+        setIsMobileMenuOpen(false);
     }, [pathname])
 
     useEffect(() => {
         pageYOffset.current = window.scrollY;
         window.addEventListener('scroll', headerScrollHandler);
-        return () => window.removeEventListener('scroll', headerScrollHandler);
+
+        const id = setInterval(() => {
+            if(window.scrollY < 300) {
+                setIsHeaderShow(true);
+            }
+        }, 200);
+
+        return () => {
+            clearInterval(id);
+            window.removeEventListener('scroll', headerScrollHandler)
+        };
     }, [])
 
     useEffect(() => {

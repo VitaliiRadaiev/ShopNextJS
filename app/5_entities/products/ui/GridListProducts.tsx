@@ -52,7 +52,7 @@ export function GridListProductsSkeleton({ columnsClassNames, countOfItems = 5 }
                     className={clsx(
                         'w-1/2 md:w-1/3 lg:w-1/5',
                         'outline-1 outline-dashed outline-slate-300',
-                        'only-mobile:last:odd:w-full',
+                        'only-mobile:last:odd:w-full p-[1px]',
                         columnsClassNames
                     )}
                 >

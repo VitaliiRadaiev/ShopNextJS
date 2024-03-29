@@ -1,4 +1,4 @@
-import { Catalog } from '@/app/3_widgets/catalog';
+import { Catalog, CatalogSkeleton } from '@/app/3_widgets/catalog';
 import { LastViewedProductsContainer } from '@/app/3_widgets/last-viewed-products';
 import { LastViewedProductsSkeleton } from '@/app/5_entities/last-viewed-products';
 import clsx from 'clsx';
@@ -16,7 +16,7 @@ export default function catalogPage(
     return (
         <main className=''>
             <div className="mt-9 lg:mt-20">
-                <Suspense>
+                <Suspense fallback={<CatalogSkeleton />}>
                     <Catalog catalogId={id} searchParams={searchParams}/>
                 </Suspense>
             </div>
